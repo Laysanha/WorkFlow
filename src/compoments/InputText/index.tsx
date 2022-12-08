@@ -3,6 +3,7 @@ type Props = {
     placeholder: string;
     name: string;
     value?: string;
+    
 };
 
 export const InputText = ({onChange, placeholder, name, value = "" }: Props) => {
