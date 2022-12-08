@@ -11,11 +11,11 @@ export const Login = () => {
             <img src={LogoWorkFlow} alt="Logo WorkFlow" />
             <p className='text-xl font-medium'>Por favor, digite suas informações de login</p>
 
-            <InputText 
+            <InputText
                 onChange={onChange} 
-                placeholder="teste" 
-                name={emailInput}
-                value="teste"
+                placeholder="Informe seu e-mail" 
+                name="email"
+                value={emailInput}
             />
         </div>
     )
