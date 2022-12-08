@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import LogoWorkFlow from '../assets/LogoWorkFlow.svg';
-import { InputText } from '../compoments/inputText';
+import { InputText } from '../compoments/InputText';
 export const Login = () => {
     
     const [emailInput, setEmailInput] = useState("");
