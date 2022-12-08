@@ -1,21 +1,28 @@
 import { useState } from 'react';
 import LogoWorkFlow from '../assets/LogoWorkFlow.svg';
-import { InputText } from '../compoments/InputText';
-export const Login = () => {
-    
+import { InputEmail } from '../compoments/InputEmail';
+import { PrimaryButtom } from '../compoments/primaryButtom';
+import { IoReturnDownForward } from "react-icons/io5";
+
+export const Login = () => {    
     const [emailInput, setEmailInput] = useState("");
     const onChange = setEmailInput;
 
     return(
-        <div className='flex flex-col items-center gap-2'>
+        <div className='flex flex-col items-center gap-4'>
             <img src={LogoWorkFlow} alt="Logo WorkFlow" />
-            <p className='text-xl font-medium'>Por favor, digite suas informações de login</p>
+            <p className='text-xl text-gray-600 font-medium'>Por favor, digite suas informações de login</p>
 
-            <InputText
+            <InputEmail
+                type='email'
                 onChange={onChange} 
                 placeholder="Informe seu e-mail" 
                 name="email"
                 value={emailInput}
+            />
+
+            <PrimaryButtom
+                contentButtom="Conectar"
             />
         </div>
     )
