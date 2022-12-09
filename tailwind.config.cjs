@@ -9,7 +9,9 @@ module.exports = {
       colors: {
         purpleBlue: {
           900: '#4763E4',
-          700: '#5C73DB',
+          800: '#5C73DB',
+          700: '#6C84F0',
+
         }
       }
     },

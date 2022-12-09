@@ -1,11 +1,15 @@
-type Props = {
-    contentButtom: string;
-}
+import { forwardRef, ForwardRefRenderFunction } from "react";
+import { PropsButton } from "./interface/interfaceButton";
 
-export const PrimaryButtom = ({ contentButtom }: Props) => {
+const PrimaryButton: ForwardRefRenderFunction<HTMLButtonElement, PropsButton> = ({ textButton,...rest }: PropsButton ) => {
     return(
-        <button className="flex flex-row justify-center items-center gap-2 w-[520px] h-10 px-3 bg-purpleBlue-900 text-sm text-gray-50 rounded-xl">
-            {contentButtom}
+        <button
+            {...rest}
+            className="w-96 h-10 px-3 text-sm text-gray-50 text-sm text-gray-50 bg-purpleBlue-900 rounded-xl flex flex-row justify-center items-center gap-2 placeholder:bg-purpleBlue-800 focus:bg-purpleBlue-700"
+        >
+            {textButton}
         </button>
     )
 }
+
+export const Button = forwardRef(PrimaryButton);

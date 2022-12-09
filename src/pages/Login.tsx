@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import LogoWorkFlow from '../assets/LogoWorkFlow.svg';
 import { Input } from '../compoments/InputBase';
+import { Button } from '../compoments/primaryButtom';
 export const Login = () => { 
     const [emailInput, setEmailInput] = useState("");
     const [passWordInput, setPassWordInput] = useState("");
@@ -13,16 +14,20 @@ export const Login = () => {
             <Input 
                 label='E-mail'
                 type='email'
-                placeholder='Informação aqui'
+                placeholder='Informação seu e-mail'
                 value={emailInput}
                 onChange={event => setEmailInput(event.target.value)}
             />
             <Input 
                 label='senha'
                 type='password'
-                placeholder='Informação aqui'
+                placeholder='Informação sua senha'
                 value={passWordInput}
                 onChange={event => setPassWordInput(event.target.value)}
+            />
+            <Button
+                type='submit'
+                textButton='Enviar'
             />
         </div>
     )
