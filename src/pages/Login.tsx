@@ -1,20 +1,19 @@
 import { useState } from 'react';
 import LogoWorkFlow from '../assets/LogoWorkFlow.svg';
-import { InputText } from '../compoments/InputText';
-export const Login = () => {
-    
+import { Input } from '../compoments/InputBase';
+export const Login = () => { 
     const [emailInput, setEmailInput] = useState("");
     const [passWordInput, setPassWordInput] = useState("");
 
     return(
-        <div className='flex flex-col items-center gap-4'>
+        <div className='flex flex-col items-center gap-2'>
             <img src={LogoWorkFlow} alt="Logo WorkFlow" />
-            <p className='text-xl text-gray-600 font-medium'>Por favor, digite suas informações de login</p>
+            <p className='text-xl font-medium'>Por favor, digite suas informações de login</p>
 
-            <InputText
-                onChange={onChange} 
-                placeholder="Informe seu e-mail" 
-                name="email"
+            <Input 
+                label='E-mail'
+                type='email'
+                placeholder='Informação aqui'
                 value={emailInput}
                 onChange={event => setEmailInput(event.target.value)}
             />
@@ -24,10 +23,6 @@ export const Login = () => {
                 placeholder='Informação aqui'
                 value={passWordInput}
                 onChange={event => setPassWordInput(event.target.value)}
-            />
-
-            <PrimaryButtom
-                contentButtom="Conectar"
             />
         </div>
     )
