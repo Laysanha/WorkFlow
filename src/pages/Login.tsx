@@ -4,17 +4,18 @@ import { Button, OutlineBtn } from '../compoments/PrimaryButton';
 
 import LogoWorkFlow from '../assets/LogoWorkFlow.svg';
 import GoogleIcon from '../assets/socialMedia/google.svg';
+import { DivisorRegister } from '../compoments/Divisor';
 
 export const Login = () => {  
     const [emailInput, setEmailInput] = useState("");
     const [passWordInput, setPassWordInput] = useState("");
 
     return(
-        <div className='flex flex-col items-center gap-2'>
+        <div className='py-8 flex flex-col items-center gap-4'>
             <img src={LogoWorkFlow} alt="Logo WorkFlow" />
-            <p className='text-xl font-medium'>Por favor, digite suas informações de login</p>
+            <p className='w-80 text-center text-xl font-medium'>Por favor, digite suas informações de login</p>
 
-            <form action="" method="get" className='flex flex-col gap-4'>
+            <form action="" method="get" className='flex flex-col gap-4 items-center'>
                 <Input 
                     required
                     label='E-mail'
@@ -32,9 +33,12 @@ export const Login = () => {
                     onChange={event => setPassWordInput(event.target.value)}
                 />
                 <Button
-                    type='submit'
                     textButton='Enviar'
                 />
+
+                <p>Não tem uma conta? <a href='#' className='text-purpleBlue-900'>Criar uma conta</a></p>
+
+                <DivisorRegister/>
 
                 <OutlineBtn 
                     textButton='Cadastre-se no Google'
