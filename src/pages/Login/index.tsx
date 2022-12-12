@@ -1,10 +1,11 @@
-import { useState } from 'react';
-import { Input } from '../compoments/InputBase';
-import { Button, OutlineBtn } from '../compoments/PrimaryButton';
+import LogoWorkFlow from '../../assets/LogoWorkFlow.svg';
+import GoogleIcon from '../../assets/socialMedia/google.svg';
 
-import LogoWorkFlow from '../assets/LogoWorkFlow.svg';
-import GoogleIcon from '../assets/socialMedia/google.svg';
-import { DivisorRegister } from '../compoments/Divisor';
+import { useState } from 'react';
+import { Input } from '../../compoments/InputBase';
+import { Button, OutlineBtn } from '../../compoments/PrimaryButton';
+import { DivisorRegister } from '../../compoments/Divisor';
+import { Link } from 'react-router-dom';
 
 export const Login = () => {  
     const [emailInput, setEmailInput] = useState("");
@@ -36,7 +37,7 @@ export const Login = () => {
                     textButton='Enviar'
                 />
 
-                <p>Não tem uma conta? <a href='#' className='text-purpleBlue-900'>Criar uma conta</a></p>
+                <p>Não tem uma conta? <Link className='text-purpleBlue-900' to='/Cadastro'>Criar uma conta</Link></p>
 
                 <DivisorRegister/>
 
@@ -44,7 +45,6 @@ export const Login = () => {
                     textButton='Cadastre-se no Google'
                     svgButton={GoogleIcon}
                     alt='G logo da google'
-
                 />
             </form>
 
