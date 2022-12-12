@@ -2,7 +2,7 @@ import { useState } from 'react';
 import LogoWorkFlow from '../assets/LogoWorkFlow.svg';
 import { Input } from '../compoments/InputBase';
 import { Button } from '../compoments/primaryButtom';
-export const Login = () => { 
+export const Login = () => {  
     const [emailInput, setEmailInput] = useState("");
     const [passWordInput, setPassWordInput] = useState("");
 
