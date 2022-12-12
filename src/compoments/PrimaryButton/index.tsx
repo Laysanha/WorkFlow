@@ -1,5 +1,5 @@
 import { forwardRef, ForwardRefRenderFunction } from "react";
-import { PropsButton, PropsButtonOutline } from "./interface/interfaceButton";
+import { PropsButton, PropsButtonOutline } from "./Interface/interfaceButton";
 
 const PrimaryButton: ForwardRefRenderFunction<HTMLButtonElement, PropsButton> = ({ textButton, svgButton, alt, ...rest }: PropsButton ) => {
     return(

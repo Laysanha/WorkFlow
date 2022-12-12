@@ -1,5 +1,5 @@
 import { forwardRef, ForwardRefRenderFunction } from "react"
-import { PropsInput } from "./interface/inputInterface"
+import { PropsInput } from "./Interface/inputInterface"
 
 const InputBase: ForwardRefRenderFunction<HTMLInputElement, PropsInput> = ({ label, ...rest }: PropsInput) => {
     return (
