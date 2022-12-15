@@ -9,23 +9,28 @@ import { Button, OutlineBtn } from '../../compoments/PrimaryButton';
 import { DivisorRegister } from '../../compoments/Divisor';
 import { AboveInformation } from '../../compoments/AboveInformartion';
 import { auth } from '../../services/firebase';
+import { async } from '@firebase/util';
 
 export const Login = () => {  
     const [emailInput, setEmailInput] = useState("");
     const [passWordInput, setPassWordInput] = useState("");
     const [user, setUser] = useState<User>({} as User);
+    const [authing, SetAuthing] = useState(Boolean);
 
     const navigate = useNavigate();
 
-    function handleGoogleSign(){
+    const handleGoogleSign = async () => {
         const provider = new GoogleAuthProvider;   
+        SetAuthing(true);
+
         signInWithPopup(auth, provider)
             .then((result) => {
-                console.log(setUser(result.user));
+                console.log(result.user.uid);
                 navigate('/Dashboard');
             })
             .catch((error) => {
                 console.log(error);
+                SetAuthing(false);
             });
     }
 
@@ -60,7 +65,7 @@ export const Login = () => {
                 textButton='Cadastre-se no Google'
                 svgButton={GoogleIcon}
                 alt='G logo da google'
-                onClick={handleGoogleSign}
+                onClick={() => handleGoogleSign()} disabled={authing}
             />
 
             <Link to='/Dashboard'>para entrar na dash</Link>
