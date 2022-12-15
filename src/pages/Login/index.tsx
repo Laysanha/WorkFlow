@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 
 import GoogleIcon from '../../assets/socialMedia/google.svg';
 import { GoogleAuthProvider, signInWithPopup, User } from "firebase/auth";
+import { Link, useNavigate } from 'react-router-dom';
 
 import { Input } from '../../compoments/InputBase';
 import { Button, OutlineBtn } from '../../compoments/PrimaryButton';
@@ -13,11 +13,20 @@ import { auth } from '../../services/firebase';
 export const Login = () => {  
     const [emailInput, setEmailInput] = useState("");
     const [passWordInput, setPassWordInput] = useState("");
-    // const [user, setUser] = useState<User>({} as User);
+    const [user, setUser] = useState<User>({} as User);
+
+    const navigate = useNavigate();
 
     function handleGoogleSign(){
         const provider = new GoogleAuthProvider;   
-        signInWithPopup(auth, provider);
+        signInWithPopup(auth, provider)
+            .then((result) => {
+                console.log(setUser(result.user));
+                navigate('/Dashboard');
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     }
 
     return(
