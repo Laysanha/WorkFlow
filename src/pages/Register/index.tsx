@@ -12,6 +12,16 @@ export const Register = () => {
             
             <form className="flex flex-col gap-4 items-center">
                 <Input 
+                    label='Nome'
+                    type='email' 
+                    placeholder='Informe seu nome'
+                />  
+                <Input 
+                    label='Sobrenome'
+                    type='email' 
+                    placeholder='Informe seu sobrenome'
+                />
+                <Input 
                     label='E-mail'
                     type='email' 
                     placeholder='Informe seu e-mail'

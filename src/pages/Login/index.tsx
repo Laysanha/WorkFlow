@@ -1,23 +1,31 @@
-import GoogleIcon from '../../assets/socialMedia/google.svg';
-
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+
+import GoogleIcon from '../../assets/socialMedia/google.svg';
+import { GoogleAuthProvider, signInWithPopup, User } from "firebase/auth";
+
 import { Input } from '../../compoments/InputBase';
 import { Button, OutlineBtn } from '../../compoments/PrimaryButton';
 import { DivisorRegister } from '../../compoments/Divisor';
-import { Link } from 'react-router-dom';
 import { AboveInformation } from '../../compoments/AboveInformartion';
+import { auth } from '../../services/firebase';
 
 export const Login = () => {  
     const [emailInput, setEmailInput] = useState("");
     const [passWordInput, setPassWordInput] = useState("");
+    const [user, setUser] = useState<User>({} as User);
+
+    function handleGoogleSign(){
+        const provider = new GoogleAuthProvider;   
+        signInWithPopup(auth, provider);
+    }
 
     return(
-        <div className='py-8 flex flex-col items-center gap-4'>
+        <div className='py-12 flex flex-col items-center gap-4'>
             <AboveInformation title='Por favor, digite suas informações de login'/>
 
             <form action="" method="get" className='flex flex-col gap-4 items-center'>
                 <Input 
-                    required
                     label='E-mail'
                     type='email'
                     placeholder='Informação seu e-mail'
@@ -25,7 +33,6 @@ export const Login = () => {
                     onChange={event => setEmailInput(event.target.value)}
                 />
                 <Input 
-                    required
                     label='senha'
                     type='password'
                     placeholder='Informação sua senha'
@@ -35,18 +42,24 @@ export const Login = () => {
                 <Button
                     textButton='Enviar'
                 />
-
-                <p>Não tem uma conta? <Link className='text-purpleBlue-900 hover:text-purpleBlue-700' to='/Cadastro'>Criar uma conta</Link></p>
-
-                <DivisorRegister/>
-
-                <OutlineBtn 
-                    textButton='Cadastre-se no Google'
-                    svgButton={GoogleIcon}
-                    alt='G logo da google'
-                />
             </form>
+            
+            <p>Não tem uma conta? <Link className='text-purpleBlue-900 hover:text-purpleBlue-700' to='/Cadastro'>Criar uma conta</Link></p>
+            
+            <DivisorRegister/>
+            <OutlineBtn 
+                textButton='Cadastre-se no Google'
+                svgButton={GoogleIcon}
+                alt='G logo da google'
+                onClick={handleGoogleSign}
+            />
+
+            <Link to='/Dashboard'>para entrar na dash</Link>
 
         </div>
     )
+}
+
+function then() {
+    throw new Error('Function not implemented.');
 }

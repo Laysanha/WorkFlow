@@ -10,8 +10,8 @@ module.exports = {
         purpleBlue: {
           900: '#4763E4',
           800: '#5C73DB',
-          700: '#6C84F0',
-
+          200: '#C0CCFF',
+          100: '#D2DAFF',
         }
       }
     },
