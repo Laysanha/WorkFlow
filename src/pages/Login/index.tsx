@@ -13,7 +13,7 @@ import { auth } from '../../services/firebase';
 export const Login = () => {  
     const [emailInput, setEmailInput] = useState("");
     const [passWordInput, setPassWordInput] = useState("");
-    const [user, setUser] = useState<User>({} as User);
+    // const [user, setUser] = useState<User>({} as User);
 
     function handleGoogleSign(){
         const provider = new GoogleAuthProvider;   
