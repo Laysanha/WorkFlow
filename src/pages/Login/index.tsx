@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 
 import GoogleIcon from '../../assets/socialMedia/google.svg';
 import { GoogleAuthProvider, signInWithPopup, User } from "firebase/auth";
@@ -9,19 +9,17 @@ import { Button, OutlineBtn } from '../../compoments/PrimaryButton';
 import { DivisorRegister } from '../../compoments/Divisor';
 import { AboveInformation } from '../../compoments/AboveInformartion';
 import { auth } from '../../services/firebase';
-import { async } from '@firebase/util';
+import { LoginAuthContext } from '../../contexts/AuthContext';
 
 export const Login = () => {  
     const [emailInput, setEmailInput] = useState("");
     const [passWordInput, setPassWordInput] = useState("");
-    const [user, setUser] = useState<User>({} as User);
-    const [authing, SetAuthing] = useState(Boolean);
-
+    // const [user, setUser] = useState<User>({} as User);
+    
     const navigate = useNavigate();
 
-    const handleGoogleSign = async () => {
+    const handleGoogleSign = () => {
         const provider = new GoogleAuthProvider;   
-        SetAuthing(true);
 
         signInWithPopup(auth, provider)
             .then((result) => {
@@ -30,8 +28,8 @@ export const Login = () => {
             })
             .catch((error) => {
                 console.log(error);
-                SetAuthing(false);
-            });
+            }
+        );
     }
 
     return(
@@ -65,15 +63,10 @@ export const Login = () => {
                 textButton='Cadastre-se no Google'
                 svgButton={GoogleIcon}
                 alt='G logo da google'
-                onClick={() => handleGoogleSign()} disabled={authing}
+                onClick={() => handleGoogleSign()}
             />
 
             <Link to='/Dashboard'>para entrar na dash</Link>
-
         </div>
     )
-}
-
-function then() {
-    throw new Error('Function not implemented.');
 }
