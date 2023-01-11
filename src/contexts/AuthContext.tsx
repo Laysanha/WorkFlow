@@ -1,17 +1,14 @@
-import { User } from "@firebase/auth";
-import { createContext, useContext, useState } from "react"
+import React, {createContext} from "react";
+import { PropsWithChildren } from "react";
+import { ReactNode } from "react";
 
-export const LoginAuthContext = createContext('');
+export const AuthContext = createContext({});
+export interface AuthRoutesProps extends PropsWithChildren {}
 
-export const LoginAuthContextProvider = ({children, value}) => {
-    // const [user, setUser] = useState<User>({} as User);
-    return(    
-        <LoginAuthContext.Provider value={value}>
+export const AuthProvider: React.FunctionComponent<AuthRoutesProps> = ({ children }) => {
+    return(
+        <AuthContext.Provider value={{ signed: true }}>
             {children}
-        </LoginAuthContext.Provider>
+        </AuthContext.Provider>
     )
-}
-
-export function useAuthValue(){
-    return useContext(LoginAuthContext);
 }

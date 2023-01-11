@@ -1,20 +1,25 @@
+//React
 import { useContext, useState } from 'react';
-
-import GoogleIcon from '../../assets/socialMedia/google.svg';
-import { GoogleAuthProvider, signInWithPopup, User } from "firebase/auth";
+//Router-dom
 import { Link, useNavigate } from 'react-router-dom';
-
+//Firebase
+import { GoogleAuthProvider, signInWithPopup, User } from "firebase/auth";
+import { auth } from '../../services/firebase';
+//Compoments
 import { Input } from '../../compoments/InputBase';
 import { Button, OutlineBtn } from '../../compoments/PrimaryButton';
 import { DivisorRegister } from '../../compoments/Divisor';
 import { AboveInformation } from '../../compoments/AboveInformartion';
-import { auth } from '../../services/firebase';
-import { LoginAuthContext } from '../../contexts/AuthContext';
+import { AuthContext } from '../../contexts/AuthContext';
+//media
+import GoogleIcon from '../../assets/socialMedia/google.svg';
 
 export const Login = () => {  
     const [emailInput, setEmailInput] = useState("");
     const [passWordInput, setPassWordInput] = useState("");
-    // const [user, setUser] = useState<User>({} as User);
+    
+    const context = useContext(AuthContext);
+    console.log(context);
     
     const navigate = useNavigate();
 
@@ -56,7 +61,7 @@ export const Login = () => {
                 />
             </form>
             
-            <p>Não tem uma conta? <Link className='text-purpleBlue-900 hover:text-purpleBlue-700' to='/Cadastro'>Criar uma conta</Link></p>
+            <p>Não tem uma conta? <Link className='text-purpleBlue-900 hover:text-purpleBlue-700' to='/'>Criar uma conta</Link></p>
             
             <DivisorRegister/>
             <OutlineBtn 
