@@ -1,9 +1,9 @@
 import React, {createContext} from "react";
 import { PropsWithChildren } from "react";
-import { ReactNode } from "react";
+
+export interface AuthRoutesProps extends PropsWithChildren {}
 
 export const AuthContext = createContext({});
-export interface AuthRoutesProps extends PropsWithChildren {}
 
 export const AuthProvider: React.FunctionComponent<AuthRoutesProps> = ({ children }) => {
     return(

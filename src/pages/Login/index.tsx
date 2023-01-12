@@ -10,7 +10,7 @@ import { Input } from '../../compoments/InputBase';
 import { Button, OutlineBtn } from '../../compoments/PrimaryButton';
 import { DivisorRegister } from '../../compoments/Divisor';
 import { AboveInformation } from '../../compoments/AboveInformartion';
-import { AuthContext } from '../../contexts/AuthContext';
+import { AuthContext } from '../../contexts/authRegister';
 //media
 import GoogleIcon from '../../assets/socialMedia/google.svg';
 
